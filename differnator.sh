@@ -65,9 +65,11 @@ function cp_dirs ()
 function compare_dirs ()
 {
 	if [ "$RECURSIVE" -eq 0 -a -d "$1" -a -d "$2" ]; then
-		diff -q -u $1 $2;
+		DIFFOUT=`diff -q -u $1 $2`;
+		write_out "$DIFFOUT";
 	elif [ "$RECURSIVE" -eq 1 -a -d "$1" -a -d "$2" ]; then
-		diff -q -u -r $1 $2;
+		DIFFOUT=`diff -q -u -r $1 $2`;
+		write_out "$DIFFOUT";
 	fi
 }
 
@@ -286,6 +288,10 @@ shift $OPTIND;
 if [ "$OPTIND" -eq 0 ]; then
 	COMPAREDIRS=1;
 elif [ "$FROMFILE" -eq 1 -a $OPTIND -eq 1 ]; then
+	COMPAREDIRS=1;
+fi
+
+if [ "$COMPAREDIRS" -eq 0 -a "$COMPAREFILES" -eq 0 -a "$COPYFILE" -eq 0 ]; then
 	COMPAREDIRS=1;
 fi
 
