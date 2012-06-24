@@ -55,7 +55,8 @@ files immediately in the first directory and will ignore subdirectories.
 .IP -p
 Output as patch\- This will remove all messages and all output from all operations except for -d (compare codebase differences) so
 that output comes out as a usable patch. Use this with -o (output as file) to have all data go to a file as a usable patch. Otherwise
-all data will just be dumped to the screen.
+all data will just be dumped to the screen. 
+.B Output will be empty is directories do not have any files in common or there was an error
 .IP -o
 Output as a file\- This requires a filename as an argument. This will send all output to a file so that it is silent on the command line
 unless there are fatal errors. If the file does not exist it will make a new file. If the file does not exist it will fail. Use -A (append)

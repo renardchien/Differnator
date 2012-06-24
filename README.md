@@ -75,6 +75,8 @@ files immediately in the first directory and will ignore subdirectories.
 that output comes out as a usable patch. Use this with -o (output as file) to have all data go to a file as a usable patch. Otherwise
 all data will just be dumped to the screen.
 
+Output will be empty is directories do not have any files in common or there was an error
+
 -o    Output as a file- This requires a filename as an argument. This will send all output to a file so that it is silent on the command line
 unless there are fatal errors. If the file does not exist it will make a new file. If the file does not exist it will fail. Use -A (append)
 or -F (force overwrite) to write to an existing file. 
