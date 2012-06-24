@@ -182,7 +182,7 @@ function check_output_file ()
 		
 	if [ -f $OUTPUT ]; then
 		if [ $1 == "o" ]; then
-			echo "Output file already exists. \nIf you want to overwrite the file use -F instead of -f. \nIf you want to append to the file use -A instead of -f.";
+			echo "Output file already exists. \nIf you want to overwrite the file use -F instead of -o. \nIf you want to append to the file use -A instead of -F.";
 			exit 65;
 		elif [ $1 == "A" ]; then
 			OUTPUTPARAM="A";
@@ -285,11 +285,11 @@ let OPTIND="$OPTIND - $SHIFTOPT";
 shift $OPTIND;
 
 #Checks to see if no options were specifed and defaults to comparing files in directories
-if [ "$OPTIND" -eq 0 ]; then
-	COMPAREDIRS=1;
-elif [ "$FROMFILE" -eq 1 -a $OPTIND -eq 1 ]; then
-	COMPAREDIRS=1;
-fi
+#if [ "$OPTIND" -eq 0 ]; then
+#	COMPAREDIRS=1;
+#elif [ "$FROMFILE" -eq 1 -a $OPTIND -eq 1 ]; then
+#	COMPAREDIRS=1;
+#fi
 
 if [ "$COMPAREDIRS" -eq 0 -a "$COMPAREFILES" -eq 0 -a "$COPYFILE" -eq 0 ]; then
 	COMPAREDIRS=1;
