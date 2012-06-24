@@ -60,9 +60,9 @@ in the directory names.
 
 Example of the contents of an input file
 
-dirName1:dirName2
-dirName3:dirName4
-dirName4:dirName2
+dirName1:dirName2   
+dirName3:dirName4   
+dirName4:dirName2   
 
 -F   Force output (OVERWRITES OUTPUT FILE)- This requires a filename as an argument. This will output all data to a file. If the file does not exist it will make one. If the
 file does exist, it will be overwritten. 
