@@ -42,19 +42,19 @@ include/ignore hidden files.
 
 OPTIONS
 ===========
--A   Append to output file- This requires a filename as an argument. If the file does not exist it will make one. If the file does exist, 
+-A    Append to output file- This requires a filename as an argument. If the file does not exist it will make one. If the file does exist, 
 it will append to it
 
--c   Compare directories- This will determine which files exist or do not exist between two directories and list them. It will also list the 
+-c    Compare directories- This will determine which files exist or do not exist between two directories and list them. It will also list the 
 names of files that differ between two directories
 
--d   Compare two codebases for differences- This will do a large diff against the files in two directories and print out the line by line
+-d    Compare two codebases for differences- This will do a large diff against the files in two directories and print out the line by line
 differences between files with headers for the name of each file. Use this with the -p (patch) flag in order to output a usuable 
 patch file in the format of diff -u. Use this with -r (recursive) to do a full recursive comparison of the two directories.
 
--i   Include hidden files- This will include hidden files for operations. By default hidden files are ignored
+-i    Include hidden files- This will include hidden files for operations. By default hidden files are ignored
 
--f   Input directories from file- This requires a filename as an argument. This will read directory pairs from a file instead of from the 
+-f    Input directories from file- This requires a filename as an argument. This will read directory pairs from a file instead of from the 
 command line. It will read one pair per line separated by a colon. Otherwise this will fail. This means that colons can't be included
 in the directory names.
 
@@ -64,22 +64,22 @@ dirName1:dirName2
 dirName3:dirName4   
 dirName4:dirName2   
 
--F   Force output (OVERWRITES OUTPUT FILE)- This requires a filename as an argument. This will output all data to a file. If the file does not exist it will make one. If the
+-F    Force output (OVERWRITES OUTPUT FILE)- This requires a filename as an argument. This will output all data to a file. If the file does not exist it will make one. If the
 file does exist, it will be overwritten. 
 
--n   Copy non-existent files from the first directory to the second directory- This will copy any files that exist in the first directory, but not 
+-n    Copy non-existent files from the first directory to the second directory- This will copy any files that exist in the first directory, but not 
 in the second directory to the second directory. Use this with -r (Recursive) to copy folders as well. Otherwise it will only copy
 files immediately in the first directory and will ignore subdirectories.
 
--p   Output as patch- This will remove all messages and all output from all operations except for -d (compare codebase differences) so
+-p    Output as patch- This will remove all messages and all output from all operations except for -d (compare codebase differences) so
 that output comes out as a usable patch. Use this with -o (output as file) to have all data go to a file as a usable patch. Otherwise
 all data will just be dumped to the screen.
 
--o   Output as a file- This requires a filename as an argument. This will send all output to a file so that it is silent on the command line
+-o    Output as a file- This requires a filename as an argument. This will send all output to a file so that it is silent on the command line
 unless there are fatal errors. If the file does not exist it will make a new file. If the file does not exist it will fail. Use -A (append)
 or -F (force overwrite) to write to an existing file. 
 
--r   Recursive functionality- This will make all functions act recursively including subdirectories in their operations.
+-r    Recursive functionality- This will make all functions act recursively including subdirectories in their operations.
 
 BUGS
 ===========
