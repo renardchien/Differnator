@@ -1,0 +1,85 @@
+.TH differnator 1 "June 2012" "1.0 Linux Version" "User Manuals"
+.SH NAME
+differnator \- Application for determining various differences between directories and codebases
+.SH SYNOPSIS
+differnator [OPTIONS]... DIRECTORY1 DIRECTORY2
+.SH DESCRIPTION
+.B differnator 1.0
+
+differnator allows you to do large diff operations with various controls and in batches. differnator was originally intended to produce usable
+patches from two similar codebases. differnator offers you the abilities to copy non-existent files from one directory to another, to compare
+which files exist or don't exist between two directories and do large scale "diff -u" operations between two directories. Directories can be
+fed into differnator from an input file with two directories separated by a colon (with one colon pair per line). differnator can also allow
+output to come out as a patch file. differnator allows options to output to files, append to files, do functions recursively and 
+include/ignore hidden files.  
+.SH OPTIONS
+.IP -A
+Append to output file\- This requires a filename as an argument. If the file does not exist it will make one. If the file does exist, 
+it will append to it
+.IP -c
+Compare directories\- This will determine which files exist or do not exist between two directories and list them. It will also list the 
+names of files that differ between two directories
+.IP -d
+Compare two codebases for differences\- This will do a large diff against the files in two directories and print out the line by line
+differences between files with headers for the name of each file. Use this with the -p (patch) flag in order to output a usuable 
+patch file in the format of diff -u. Use this with -r (recursive) to do a full recursive comparison of the two directories.
+.IP -i
+Include hidden files\- This will include hidden files for operations. By default hidden files are ignored
+.IP -f
+Input directories from file\- This requires a filename as an argument. This will read directory pairs from a file instead of from the 
+command line. It will read one pair per line separated by a colon. Otherwise this will fail. This means that colons can't be included
+in the directory names.
+.br
+.br
+
+.B Example of the contents of an input file
+
+.br
+dirName1:dirName2
+.br
+dirName3:dirName4
+.br
+dirName4:dirName2
+.IP -F
+Force output 
+.B (OVERWRITES OUTPUT FILE)
+\- This requires a filename as an argument. This will output all data to a file. If the file does not exist it will make one. If the
+file does exist, it will be overwritten. 
+.IP -n
+Copy non-existent files from the first directory to the second directory\- This will copy any files that
+.B exist 
+in the first directory, but 
+.B not 
+in the second directory to the second directory. Use this with -r (Recursive) to copy folders as well. Otherwise it will only copy
+files immediately in the first directory and will ignore subdirectories.
+.IP -p
+Output as patch\- This will remove all messages and all output from all operations except for -d (compare codebase differences) so
+that output comes out as a usable patch. Use this with -o (output as file) to have all data go to a file as a usable patch. Otherwise
+all data will just be dumped to the screen.
+.IP -o
+Output as a file\- This requires a filename as an argument. This will send all output to a file so that it is silent on the command line
+unless there are fatal errors. If the file does not exist it will make a new file. If the file does not exist it will fail. Use -A (append)
+or -F (force overwrite) to write to an existing file. 
+.IP -r
+Recursive functionality\- This will make all functions act recursively including subdirectories in their operations.
+.SH BUGS
+See https://github.com/renardchien/Differnator/issues for a current list of bugs or to file a new bug. 
+
+.B Current Bugs
+Hidden files are included with -c (compare directories) by default even without the -i (include hidden files) flag. This is due to the 
+nature of the diff command. A solution has not been found.
+
+Input files use a colon delimiter which means that directories can't have a colon in the name or else it will not work correctly. 
+This is a limitation of differnator, but hopefully will be fixed in the future.
+
+.SH Copyright
+Written by Cody Van De Mark
+
+Copyright © 2012 Cody Van De Mark. 
+License GPLv3+: GNU GPL version 3 or later  <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it. 
+There is 
+.B NO WARRANY
+, to the extent permitted by law
+.SH "SEE ALSO"
+.B diff(1)
