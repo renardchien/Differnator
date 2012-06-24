@@ -42,7 +42,7 @@ include/ignore hidden files.
 
 OPTIONS
 ===========
--A    Append to output file- This requires a filename as an argument. If the file does not exist it will make one. If the file does exist, 
+-A * Append to output file- This requires a filename as an argument. If the file does not exist it will make one. If the file does exist, 
 it will append to it
 
 -c    Compare directories- This will determine which files exist or do not exist between two directories and list them. It will also list the 
